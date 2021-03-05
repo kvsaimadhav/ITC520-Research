@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>
+Captcha
+</title>
+<style>
+.email-signup-thankyou{
+  font-family:sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: #333;
+  padding:10%;
+  
+  .content{
+    margin: auto;  /* Magic! */
+    max-width:700px;
+    color:#333;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.55), 0 3px 6px rgba(0,0,0,0.23);
+    background:url('https://www.crafta.co.il/images/paper-plane.gif') no-repeat #fff;
+    background-position: right 5px bottom 5px;
+    background-size: 10em;
+    text-align:center;
+    position: relative;
+    padding:10%;
+    border-radius:5px;
+
+    .left-hole,.right-hole{
+      position: absolute;
+      width:20px; height:20px;
+      background:#333;
+      border-radius:50%;
+      top:15px;
+    }
+    .left-hole{
+      left:15px;
+      top:10px;
+    }
+    .right-hole{
+      right:15px;
+      top:10px;
+    }
+    h2,h3{
+      text-align:left;
+      padding:5% 5% 0% 3%;
+      color:#333;
+      font-weight:900;
+    }
+    .main-content{
+      > h1 {
+        color:#333;
+        text-transform:uppercase;
+        margin-top:-2%;
+        font-size:2.5em;
+        font-weight:900;
+      }
+    }
+  }
+}
+
+input[type=text] {
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button{
+  background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+canvas{
+  /*prevent interaction with the canvas*/
+  pointer-events:none;
+}
+</style>
+<script>
+var code;
+function createCaptcha() {
+  //clear the contents of captcha div first 
+  document.getElementById('captcha').innerHTML = "";
+  var charsArray =
+  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
+  var lengthOtp = 6;
+  var captcha = [];
+  for (var i = 0; i < lengthOtp; i++) {
+    //below code will not allow Repetition of Characters
+    var index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+    if (captcha.indexOf(charsArray[index]) == -1)
+      captcha.push(charsArray[index]);
+    else i--;
+  }
+  var canv = document.createElement("canvas");
+  canv.id = "captcha";
+  canv.width = 100;
+  canv.height = 50;
+  var ctx = canv.getContext("2d");
+  ctx.font = "25px Georgia";
+  ctx.strokeText(captcha.join(""), 0, 30);
+  //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+  code = captcha.join("");
+  document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
+}
+function validateCaptcha() {
+  event.preventDefault();
+  debugger
+  if (document.getElementById("cpatchaTextBox").value == code) {
+    document.getElementById("report").submit();
+    alert("Valid Captcha")
+    
+  }else{
+    alert("Invalid Captcha. try Again");
+    createCaptcha();
+  }
+}
+
+</script>
+</head>
+<body onload="createCaptcha()">
+<div class="header-custom email-signup-thankyou">
+  <div class="content">
+    <div class="left-hole"></div>
+    <div class="right-hole"></div>
+    <div class="main-content">
+      <h1><cnter>Our model Predicted that you might be a part of DDoS attack</center></h1>
+      <p>To prove that you are a genuine user complete the below captcha</p>
+      <br>
+      <br>
+          <form onsubmit="validateCaptcha()">
+            <div id="captcha">
+            </div>
+            <input type="text" placeholder="Captcha" id="cpatchaTextBox"/>
+            <button type="submit">Submit</button>
+          </form>
+          <form id="report" method="get" action="{% url 'report' %}">
+          </form>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

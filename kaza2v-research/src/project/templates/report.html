@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!--Author: Sreemanth Tirumala-->
+<!--Gid: G01181388-->
+<!--Email: stirumal@gmu.edu-->
+
+{% block styles %}
+    {{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+    <h3><center>Final Report</center></h3>
+    <br>
+        <center><h3>Here is your report infomration {{ request.session.name }}</h3></center>
+    <br>
+    </div>
+    <div class="row">
+          <div class="col-25">
+              <label for="user-email">Name</label>
+          </div>
+         <div class="col-75">
+            <h4>{{ request.session.name }}</h4>
+          </div>
+    </div> 
+    <div class="row">
+          <div class="col-25">
+              <label for="user-email">E-Mail</label>
+          </div>
+         <div class="col-75">
+            <h4>{{ request.session.email }}</h4>
+          </div>
+    </div>   
+    
+    <div class="row">
+          <div class="col-25">
+              <label for="user-email">Bug Type</label>
+          </div>
+         <div class="col-75">
+            <h4>{{ request.session.bug }}</h4>
+          </div>
+    </div>   
+    
+    <div class="row">
+          <div class="col-25">
+              <label for="user-email">Previous Report Check</label>
+          </div>
+         <div class="col-75">
+            <h4>{{ request.session.time_av }}</h4>
+          </div>
+    </div>   
+    
+    <div class="row">
+          <div class="col-25">
+              <label for="user-email">Name</label>
+          </div>
+         <div class="col-75">
+            <h4>{{ request.session.name }}</h4>
+          </div>
+    </div> 
+        <div class="row">
+          <div class="col-25">
+              <label for="user-email">Date of Report</label>
+          </div>
+         <div class="col-75">
+            <h4>{{ request.session.date }}</h4>
+          </div>
+    </div> 
+        <div class="row">
+          <div class="col-25">
+              <label for="user-email">Comments</label>
+          </div>
+         <div class="col-75">
+            <h4>{{ request.session.comments }}</h4>
+          </div>
+    </div>     
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <h3><center>Final Report</center></h3>
+        <br>
+            <center><h3>Bug Specifics(if any)</h3></center>
+        <br>
+    </div>
+    {% for key, value in data_dict.items %}
+        <div class="row">
+              <div class="col-25">
+                  <label for="user-email">{{ key }}</label>
+              </div>
+             <div class="col-75">
+                <h4>{{ value }}</h4>
+              </div>
+        </div> 
+    {% endfor %}
+{% endblock %}

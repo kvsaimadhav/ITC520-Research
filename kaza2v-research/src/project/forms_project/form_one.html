@@ -1,0 +1,248 @@
+
+
+<!DOCTYPE html>
+<!--Author: Sreemanth Tirumala-->
+<!--Gid: G01181388-->
+<!--Email: stirumal@gmu.edu-->
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--includes all css for this page-->
+<style>
+    .required{
+        color:red;
+    }
+    .img-logo p img{
+        max-height: 90px;
+        max-width: 90px;
+    }
+    .img-logo{
+        text-align: end;
+    }
+    h1   {color: #ffcc33;
+    font:calibri, sans-serif;
+    border: 5px solid #ffcc33;
+    box-shadow: 1px 2px #888888;}
+  
+    body {background-color: white;
+    background-image: url("bgim.png");
+    background-position: center; /* Center the image */
+  	background-repeat: no-repeat; /* Do not repeat the image */
+  	background-size: cover; /* Resize the background image to cover the entire container */}
+    
+    h2{color: #ffcc33;
+    }
+*{
+  box-sizing: border-box;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  color:#619dff;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  margin: auto;
+  display: block;
+  background-color: #adfff1;
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: center;
+  width:50%;
+  display: block;
+}
+
+input[type=submit]:hover {
+  background-color: #85e6d5;
+}
+
+.container {
+margin: auto;
+  border-radius: 5px;
+  background-color: #f0f6ff;
+  padding: 20px;
+  width:80%;
+
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  width:75%;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+<!--form starts-->
+<br>
+<br>
+<br>
+  <form method="post" action="" autocomplete="on">
+    <div class="container"><!--using responsive css-->
+    <div class="row">
+    <center><h3>REPORT FORM</h3></center>
+    </div>
+    <div class="row">
+      <div class="col-25">
+          <label for="Firstname">First Name<sub class="required">*</sub></label>
+      </div>
+      <div class="col-75">
+          <input type="text" id="fname" name="Firstname" placeholder="Your First Name.." required="" autofocus="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+          <label for="Lasttname">Last Name<sub class="required">*</sub></label>
+      </div>
+      <div class="col-75">
+          <input type="text" id="lname" name="Lastname" placeholder="Your Last Name.." required="" autofocus="">
+      </div>
+    </div>
+   
+    <div class="row">
+      <div class="col-25">
+        <label for="ID">ID Number<sub class="required">*</sub></label>
+      </div>
+     <div class="col-75">
+        <input type="text" id="id" name="id" placeholder="Your id number.." required="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="Zip">Zip<sub class="required">*</sub></label>
+      </div>
+     <div class="col-75">
+        <input type="text" id="zip" name="Zip" placeholder="Your Zip Code..">
+      </div>
+    </div>
+      
+      
+    <div class="row">
+      <div class="col-25">
+          <label for="user-email">Email<sub class="required">*</sub></label>
+      </div>
+     <div class="col-75">
+        <input type="Email" id="email" name="email" placeholder="name@domain.com" required />
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-25">
+        <label for="Dateofreport">Date Of Report<sub class="required">*</sub></label>
+      </div>
+     <div class="col-75">
+        <input id="date" name="date" type="date"/> 
+      </div>
+    </div>
+    <br>
+    <br>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+      <div class="row">
+            <div class="col-25">
+            <label for="bug_type">Please select the type of BUG you are facing</label>
+            </div>
+        <div class="col-75">
+            <label><input name="bug_type" id="ui" type="radio" value="ui"/>User Interface 
+             </label> 
+            <label><input name="bug_type" id="security" type="radio" value="security"/> Security
+            </label>
+            <label><input name="bug_type" type="radio" id="functionality" value="functionality"/> Functionality
+            </label> 
+            <label><input name="bug_type" id="connectivity" type="radio" value="connectivity"/> Connectivity
+            </label> 
+            <label><input name="bug_type" id="other" type="radio" value="other"/> Other-Complex 
+            </label>   
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-25">
+            <label for="previous-report">Did you Previously report a BUG</label>
+        </div>
+        <div class="col-75">
+            <label><input name="previous-report" id="yes" type="radio" value="yes"/>Yes
+            </label> 
+            <label><input name="previous-report" id="no" type="radio" value="no"/>No
+        </div>
+      </div>
+    </div>
+    
+     <br><br>
+
+    <!--for likelihood of suggestions-->
+    <div class="container">
+      <div class="row">
+        <div class="col-25">
+            <label for="Likelihood">Will you be available to reproduce this BUG in the following 14 days</label>
+        </div>
+        <div class="col-75">
+            <select name="rating" required=""> 
+             <option>Yes </option> 
+             <option>No</option> 
+             <option>Later than 14 Days</option> 
+            </select>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <br><br>
+    <!--for comments-->
+    <div class="container">
+      <div class="row">
+        <div class="col-25">
+            <label for="Comments">Describe your BUG</label>
+        </div>
+        <div class="col-75">
+            <textarea name="comments"  rows="4" cols="36" > </textarea>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row"><!--Submit Button-->
+      <input type="submit" value="Get Suggestions">
+    </div>
+   <br>
+  </form>
+</body>
+</html>

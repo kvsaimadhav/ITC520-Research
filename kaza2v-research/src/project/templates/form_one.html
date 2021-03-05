@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!--Author: Sreemanth Tirumala-->
+<!--Gid: G01181388-->
+<!--Email: stirumal@gmu.edu-->
+
+{% block styles %}
+    {{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+{% endblock %}
+<!--form starts-->
+
+{% block body %}
+
+ <form method="get" action="{% url 'output' %}" autocomplete="on">
+    {% csrf_token %}
+    <div class="container"><!--using responsive css-->
+    <div class="row">
+    <center><h3>Admission using security backed by ML</h3></center>
+    </div>
+    <div class="row">
+      <div class="col-25">
+          <label for="Firstname">First Name<sub class="required">*</sub></label>
+      </div>
+      <div class="col-75">
+          <input type="text" id="fname" name="fname" placeholder="Your First Name.." required="" autofocus="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+          <label for="Lasttname">Last Name<sub class="required">*</sub></label>
+      </div>
+      <div class="col-75">
+          <input type="text" id="lname" name="lname" placeholder="Your Last Name.." required="" autofocus="">
+      </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div class="row"><!--Submit Button-->
+      <input type="submit" value="Get Access">
+    </div>
+   <br>
+  </form>
+{% endblock %}

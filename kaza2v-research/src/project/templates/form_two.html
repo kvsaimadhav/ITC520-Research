@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+<!--Author: Sreemanth Tirumala-->
+<!--Gid: G01181388-->
+<!--Email: stirumal@gmu.edu-->
+
+{% block styles %}
+    {{ block.super }}
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+{% endblock %}
+
+
+{% block body %}
+    <div class="container"><!--using responsive css-->
+    <div class="row">
+    <center><h3>Welcome {{ request.session.name }}</h3></center>
+    </div>
+    <br>
+    <div class="container"><!--using responsive css-->
+    <div class="row">
+    <h4><b>Welcome You have been Granted Access<br>
+    <br>Our machine learning model predicted that you are a non malicious user and donot posses ddos capabilities<br>
+    <br>Please continue using our application<br>
+    </h4>
+    </div>
+    </div>
+{% endblock %}
+
